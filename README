@@ -1,0 +1,3 @@
+visafe (VI safe) is a simple script using gpg and vi to provide convenient and (hopefully) secure access to an encrypted file.
+
+visafe asks the user for a passphrase, decrypts (using gpg) the file provided on the command line, lets the user view or edit it with vi, and then re-encrypts the file using the same passphrase read from the user initially.

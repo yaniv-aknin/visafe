@@ -1,0 +1,22 @@
+#!/usr/bin/env python2.6
+from __future__ import print_function
+
+DEBUG = True
+
+import sys
+
+def main(argv):
+    try:
+        import main
+        main.validate_runtime_environment()
+        options = main.parse_arguments(argv)
+        return main.main(options)
+    except ImportError, error:
+        print('unable to import a required library: %s' % (error,))
+    except KeyboardInterrupt:
+        pass
+    except Exception if not DEBUG else (), error:
+        print('oops! caught unexpected %s: %s' % (error.__class__.__name__, error))
+
+if __name__ == '__main__':
+    main(sys.argv)
