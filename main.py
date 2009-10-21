@@ -51,5 +51,5 @@ def main(options):
 
     utils.remove_with_backup(options.filename)
     encrypt_file(passphrase, source_filename=temporary_filename, destintation_filename=options.filename)
-    # TODO: make sure temporary_filename was really deleted
+    os.remove(temporary_filename)
     return SUCCESS
